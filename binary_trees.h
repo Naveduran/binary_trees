@@ -3,15 +3,8 @@
 
 /* -- Different libraries for c functions --*/
 #include <stdio.h> /* For printf */
-#include <unistd.h> /* For fork, execve */
 #include <stdlib.h> /* For exit failure or success */
-#include <string.h> /* For strtok, strlen */
-#include <errno.h> /* For errno and perror */
-#include <sys/types.h> /* For type pid */
-#include <sys/wait.h> /* For wait */
-#include <sys/stat.h> /* For use of stat function */
-#include <fcntl.h> /* For open files */
-#include <ctype.h> /* For isdigit */
+#include <stddef.h>
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -32,6 +25,8 @@ struct binary_tree_s
 typedef struct binary_tree_s binary_tree_t;
 typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s heap_t;
+
+void binary_tree_print(const binary_tree_t *);
 
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -63,6 +58,8 @@ bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 bst_t *bst_remove(bst_t *root, int value);
 int binary_tree_is_avl(const binary_tree_t *tree);
+
+/*
 avl_t *avl_insert(avl_t **tree, int value);
 avl_t *array_to_avl(int *array, size_t size);
 avl_t *avl_remove(avl_t *root, int value);
@@ -71,7 +68,6 @@ int binary_tree_is_heap(const binary_tree_t *tree);
 heap_t *heap_insert(heap_t **root, int value);
 heap_t *array_to_heap(int *array, size_t size);
 int heap_extract(heap_t **root);
-int *heap_to_sorted_array(heap_t *heap, size_t *size);
-
+int *heap_to_sorted_array(heap_t *heap, size_t *size);*/
 
 #endif /* BINARY_TREES_H */
