@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-size_t bt_height(const binary_tree_t *tree);
 
 /**
  * bt_height - measures the height of a binary tree
