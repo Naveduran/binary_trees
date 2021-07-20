@@ -7,6 +7,9 @@
 
 void binary_tree_delete(binary_tree_t *tree)
 {
-/* Remember to check first if parameters exists */
-  return (0);
+	if (tree == NULL)
+		return;
+	binary_tree_delete(tree->left);
+	binary_tree_delete(tree->right);
+	free(tree);
 }
