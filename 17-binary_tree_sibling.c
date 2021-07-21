@@ -6,8 +6,17 @@
  * Return: If node is NULL or the parent is NULL, return NULL
  * If node has no sibling, return NULL
  */
-prototype whitout semicolon
+binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
-/* Remember to check first if parameters exists */
-return (0);
+	if (node == NULL || node->parent == NULL)
+		return (NULL);
+
+	if (node->parent->left && node->parent->right)
+	{
+		if (node->parent->left == node)
+			return (node->parent->right);
+		else
+			return (node->parent->left);
+	}
+	return (NULL);
 }
