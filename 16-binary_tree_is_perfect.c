@@ -8,35 +8,35 @@
 
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-        int left = 0, right = 0;
+	int left = 0, right = 0;
 
-        /*If I don't exist*/
-        if (tree == NULL)
-                return (0);
+	/*If I don't exist*/
+	if (tree == NULL)
+		return (0);
 
-         /*If I have no child*/
-        if (tree->left == NULL && tree->right == NULL)
-                return (1);
+	/*If I have no child*/
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
 
-        /* If I have only a right */
-        if (tree->left != NULL && tree->right == NULL)
-                return (0);
+	/* If I have only a right */
+	if (tree->left != NULL && tree->right == NULL)
+		return (0);
 
-        /* If I have only a left */
-        if (tree->left == NULL && tree->right != NULL)
-                return (0);
+	/* If I have only a left */
+	if (tree->left == NULL && tree->right != NULL)
+		return (0);
 
-        /*Else, I have two childs*/
+	/*Else, I have two childs*/
 
-        /*Check  both childs fulliness*/
-        left = binary_tree_is_full(tree->left);
-        right = binary_tree_is_full(tree->right);
+	/*Check  both childs fulliness*/
+	left = binary_tree_is_full(tree->left);
+	right = binary_tree_is_full(tree->right);
 
-        /*If both are full, I am full too*/
-        if (left == 1 && right == 1)
-                return (1);
-        return (0);
+	/*If both are full, I am full too*/
+	if (left == 1 && right == 1)
+		return (1);
 
+	return (0);
 }
 
 /**
@@ -47,21 +47,21 @@ int binary_tree_is_full(const binary_tree_t *tree)
 
 size_t bt_height(const binary_tree_t *tree)
 {
-        int height_left = 0;
-        int height_right = 0;
+	int height_left = 0;
+	int height_right = 0;
 
-        if (tree == NULL) /*I don't exist*/
-                return (0);
-        if (tree->left == NULL && tree->right == NULL)
-                return (1);
-        if (tree->left) /*measure my left branch*/
-                height_left = 1 + bt_height(tree->left);
-        if (tree->right) /*measure my right branch*/
-                height_right = 1 + bt_height(tree->right);
-        if (height_left > height_right) /*the left is longer*/
-                return (height_left);
-        else /*the right is longer*/
-                return (height_right);
+	if (tree == NULL) /*I don't exist*/
+		return (0);
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
+	if (tree->left) /*measure my left branch*/
+		height_left = 1 + bt_height(tree->left);
+	if (tree->right) /*measure my right branch*/
+		height_right = 1 + bt_height(tree->right);
+	if (height_left > height_right) /*the left is longer*/
+		return (height_left);
+	else /*the right is longer*/
+		return (height_right);
 }
 
 /**
@@ -73,12 +73,12 @@ size_t bt_height(const binary_tree_t *tree)
 
 int binary_tree_balance(const binary_tree_t *tree)
 {
-        int balance_factor;
+	int balance_factor;
 
-        if (tree == NULL)
-                return (0);
-        balance_factor =  bt_height(tree->left) -  bt_height(tree->right);
-        return (balance_factor);
+	if (tree == NULL)
+		return (0);
+	balance_factor =  bt_height(tree->left) -  bt_height(tree->right);
+	return (balance_factor);
 }
 
 

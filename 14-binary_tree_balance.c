@@ -14,7 +14,7 @@ size_t bt_height(const binary_tree_t *tree)
 	if (tree == NULL) /*I don't exist*/
 		return (0);
 
-   	if (tree->left == NULL && tree->right == NULL)
+	if (tree->left == NULL && tree->right == NULL)
 		return (1);
 
 	if (tree->left) /*measure my left branch*/
