@@ -1,4 +1,4 @@
-|#include "binary_trees.h"
+#include "binary_trees.h"
 
 binary_tree_t *sa(binary_tree_t *a, binary_tree_t *b,
 				   binary_tree_t *aa, binary_tree_t *bb, int level);
@@ -20,7 +20,8 @@ binary_tree_t *sa(binary_tree_t *a, binary_tree_t *b,
 	if (a == NULL || b == NULL || aa == NULL || bb == NULL)
 		return (NULL);
 
-/*printf("level = %d. Checking ancesters %d and %d\n", level, aa->n, bb->n);*/
+	/*printf*/
+	/*("level = %d. Checking ancesters %d and %d\n", level, aa->n, bb->n);*/
 	/*Check for same level common ancestor*/
 	if (aa == bb)
 		return (aa);
