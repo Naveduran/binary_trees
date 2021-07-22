@@ -107,7 +107,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	perfect_left = binary_tree_is_perfect(tree->left);
 	perfect_right = binary_tree_is_perfect(tree->right);
-	
+
 	if (perfect_left == perfect_right)
 		return (1);
 
