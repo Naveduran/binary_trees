@@ -90,16 +90,24 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int full = binary_tree_is_full(tree);
-	int balance = binary_tree_balance(tree);
-
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
+	int height_left, height_right;
+	int perfect_left, perfect_right, perfect;
 
 	if (tree == NULL)
 		return (0);
-	if (full == 1 && balance == 0)
+
+	if (tree->left == NULL && tree->left == NULL)
 		return (1);
-	else
+
+	height_left = bt_height(tree->left);
+	height_right = bt_height(tree->right);
+
+	if (height_left != height_right)
 		return (0);
+
+	perfect_left = binary_tree_is_perfect(tree->left);
+	perfect_right = binary_tree_is_perfect(tree->right);
+	perfect = perfect_left & perfect_right;
+
+	return (perfect);
 }
