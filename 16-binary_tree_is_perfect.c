@@ -93,6 +93,9 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	int full = binary_tree_is_full(tree);
 	int balance = binary_tree_balance(tree);
 
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
+
 	if (tree == NULL)
 		return (0);
 	if (full == 1 && balance == 0)
