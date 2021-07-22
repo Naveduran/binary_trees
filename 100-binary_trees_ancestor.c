@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 
-binary_tree_t * sa(binary_tree_t *a, binary_tree_t *b,
+binary_tree_t *sa(binary_tree_t *a, binary_tree_t *b,
 				   binary_tree_t *aa, binary_tree_t *bb, int level);
 
 /**
@@ -10,10 +10,11 @@ binary_tree_t * sa(binary_tree_t *a, binary_tree_t *b,
  * @b : second node
  * @aa : a or ancestor of a
  * @bb : b or ancestor of b
+ * @level: level of recursion
  * Return: the common ancestor if found, else, a NULL value
  */
 
-binary_tree_t * sa(binary_tree_t *a, binary_tree_t *b,
+binary_tree_t *sa(binary_tree_t *a, binary_tree_t *b,
 				   binary_tree_t *aa, binary_tree_t *bb, int level)
 {
 	if (a == NULL || b == NULL || aa == NULL || bb == NULL)
@@ -57,10 +58,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 {
 	if (first == NULL || second == NULL)
 		return (NULL);
-	else
-	{
-		return (sa((binary_tree_t *) first, (binary_tree_t *) second,
+	return (sa((binary_tree_t *) first, (binary_tree_t *) second,
 				   (binary_tree_t *) first, (binary_tree_t *) second,
 				   0));
-	}
 }
