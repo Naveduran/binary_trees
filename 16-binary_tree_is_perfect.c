@@ -1,46 +1,31 @@
 #include "binary_trees.h"
 
-/**
- * _pow_recursion - Fuctiona that emul the potentiation.
- * @x: Base.
- * @y: Pwer.
- * Return: Return the power ofd x at y.
- */
-int pow_recursion(int x, int y)
-{
-	if (y < 0)
-		return (-1);
-
-	else if (y > 0)
-		return (x * pow_recursion(x, y - 1));
-	else
-		return (1);
-}
+#include "binary_trees.h"
 
 /**
- * bt_height - measures the height of a binary tree
+ * binary_tree_height - measures the height of a binary tree
  * @tree: is a pointer to the root node of the tree to measure the height.
  * Return: 0 if the tree is NULL and the height.
  */
 
-size_t bt_height(const binary_tree_t *tree)
+size_t binary_tree_height(const binary_tree_t *tree)
 {
 	int height_left = 0;
 	int height_right = 0;
 
-	if (tree == NULL) /*I don't exist*/
+	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
 		return (0);
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
-	if (tree->left) /*measure my left branch*/
-		height_left = 1 + bt_height(tree->left);
-	if (tree->right) /*measure my right branch*/
-		height_right = 1 + bt_height(tree->right);
-	if (height_left > height_right) /*the left is longer*/
+
+	height_left = 1 + binary_tree_height(tree->left);
+	height_right = 1 + binary_tree_height(tree->right);
+
+	if (height_left > height_right)
 		return (height_left);
-	else /*the right is longer*/
+
+	else
 		return (height_right);
 }
+
 
 /**
  * binary_tree_size - measures the size of a binary tree
@@ -66,6 +51,23 @@ size_t binary_tree_size(const binary_tree_t *tree)
 }
 
 /**
+ * _pow_recursion - returns the value of x raised to the power of y.
+ * @x: value to be powered.
+ * @y: the power, times x is multiplied.
+ *
+ * Return: the power y of x or -1 if y is lower than 0.
+ */
+int pow_recursion(int x, int y)
+{
+	if (y < 0)
+		return (-1);
+	else if (y > 0)
+		return (x * pow_recursion(x, y - 1));
+	else
+		return (1);
+}
+
+/**
  * binary_tree_is_perfect - checks if a binary tree is perfect
  * @tree: is a pointer to the root node of the tree to check
  * Return: If tree is NULL, your function must return 0
@@ -75,21 +77,20 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	int height;
 	int size;
+	int iterator;
 	int perfect_size = 0;
-	int iterator = 0;
 
 	if (tree == NULL)
 		return (0);
 
 	height = binary_tree_height(tree);
-	size = binary_tree_size;
+	size = binary_tree_size(tree);
 
 	for (iterator = 0; iterator <= height; iterator++)
 		perfect_size += pow_recursion(2, iterator);
 
 	if (perfect_size != size)
 		return (0);
-
 	else
 		return (1);
 }
