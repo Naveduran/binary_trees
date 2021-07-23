@@ -1,7 +1,5 @@
 #include "binary_trees.h"
 
-#include "binary_trees.h"
-
 /**
  * binary_tree_height - measures the height of a binary tree
  * @tree: is a pointer to the root node of the tree to measure the height.
@@ -51,11 +49,10 @@ size_t binary_tree_size(const binary_tree_t *tree)
 }
 
 /**
- * _pow_recursion - returns the value of x raised to the power of y.
- * @x: value to be powered.
- * @y: the power, times x is multiplied.
- *
- * Return: the power y of x or -1 if y is lower than 0.
+ * pow_recursion - function to emul potentiation.
+ * @x: base.
+ * @y: the power.
+ * Return: the power y of x at y power.
  */
 int pow_recursion(int x, int y)
 {
